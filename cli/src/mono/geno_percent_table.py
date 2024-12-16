@@ -2,12 +2,12 @@ from typing import Counter, List, Set
 
 from prettytable import PrettyTable
 
-from lib.entity import Entity
-from lib.trait import Trait
+from src.lib.data.mono_entity import MonoEntity
+from src.lib.data.trait import Trait
 
 
-def gpercent_table(trait: Trait, children: List[Entity]) -> None:
-    t: PrettyTable = PrettyTable(["Genotype", "Percent"])
+def genoPercentTable(trait: Trait, children: List[MonoEntity]) -> None:
+    t: PrettyTable = PrettyTable(["Genotip", "Procenat"])
     genotypes = [c.genotype for c in children]
 
     counter: Counter = Counter(genotypes)

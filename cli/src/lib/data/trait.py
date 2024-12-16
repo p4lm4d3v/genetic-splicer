@@ -1,6 +1,6 @@
 from typing import Self
 
-from lib.genotype import Genotype
+from src.lib.data.mono_genotype import MonoGenotype
 
 
 # Object that is used for storing the data about the trait that we are following
@@ -12,11 +12,17 @@ class Trait:
         self.recesive = recesive
 
     # Function that determines the phenotype from the genotype
-    def pheno(self: Self, genotype: Genotype) -> str:
+    def pheno(self: Self, genotype: MonoGenotype) -> str:
         match genotype:
-            case Genotype.AA:
+            case MonoGenotype.AA:
                 return self.dominant
-            case Genotype.Aa:
+            case "AA":
                 return self.dominant
-            case Genotype.aa:
+            case MonoGenotype.Aa:
+                return self.dominant
+            case "Aa":
+                return self.dominant
+            case MonoGenotype.aa:
+                return self.recesive
+            case "aa":
                 return self.recesive
